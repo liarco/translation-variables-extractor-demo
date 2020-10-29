@@ -1,0 +1,13 @@
+<h2>PHP supported syntax</h2>
+<ul>
+    {% for translation in supported_translations %}
+        <li>{{ translation }}</li>
+    {% endfor %}
+</ul>
+
+<h2>PHP unsupported syntax</h2>
+<ul>
+    {% for translation in unsupported_translations %}
+        <li>{{ translation }}</li>
+    {% endfor %}
+</ul>
