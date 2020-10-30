@@ -1,12 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+
+        <style>
+            .good {
+                color: green;
+            }
+
+            .bad {
+                color: red;
+            }
+        </style>
     </head>
     <body>
+        <h1>Translation examples</h1>
+
+        <ul>
+            <li>D_ = explicit domain</li>
+            <li>ND_ = no explicit domain (<i>trans_default_domain</i> for Twig)</li>
+            <li class="good">translation loaded successfully</li>
+            <li class="bad">translation not loaded</li>
+        </ul>
+
+        <h2>PHP supported syntax</h2>
+        <ul class="examples">
+            {% for translation in supported_translations %}
+                <li>{{ translation }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>PHP unsupported syntax</h2>
+        <ul class="examples">
+            {% for translation in unsupported_translations %}
+                <li>{{ translation }}</li>
+            {% endfor %}
+        </ul>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                for (const item of document.querySelectorAll('.examples li')) {
+                    if (item.innerText.startsWith('__')) {
+                        item.classList.add('good');
+                    } else {
+                        item.classList.add('bad');
+                    }
+                }
+            });
+        </script>
     </body>
 </html>

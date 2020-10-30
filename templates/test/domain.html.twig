@@ -5,12 +5,8 @@
 {% block title %}Hello TestController!{% endblock %}
 
 {% block body %}
-    <h1>Translation examples</h1>
-
-    {% include 'test/php.html.twig' %}
-
     <h2>Twig supported syntax</h2>
-    <ul>
+    <ul class="examples">
         {# trans tag #}
         <li>{% trans %}D_trans_tag{% endtrans %}</li>
         <li>{% trans with {'var1': 'val1', 'var2': 'val2'} %}D_trans_tag_with_variables{% endtrans %}</li>
@@ -34,7 +30,7 @@
     </ul>
 
     <h2>Twig unsupported syntax</h2>
-    <ul>
+    <ul class="examples">
         {# variables #}
         {% set D_t_function_in_a_variable = t('D_t_function_in_a_variable') %}
         <li>{{ D_t_function_in_a_variable|trans }}</li>
