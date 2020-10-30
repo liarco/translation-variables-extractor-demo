@@ -7,8 +7,13 @@
 
     {% include 'test/php.html.twig' %}
 
-    <h2>Twig</h2>
+    <h2>Twig supported syntax</h2>
     <ul>
+        {# trans tag #}
+        <li>{% trans %}trans_tag{% endtrans %}</li>
+        <li>{% trans with {'var1': 'val1', 'var2': 'val2'} %}trans_tag_with_variables{% endtrans %}</li>
+        <li>{% trans with {'var1': 'val1', 'var2': 'val2'} from 'my-other-domain' %}trans_tag_with_variables_and_domain{% endtrans %}</li>
+        <li>{% trans with {'var1': 'val1', 'var2': 'val2'} from 'my-other-domain' into 'en'%}trans_tag_with_variables_and_domain_and_locale{% endtrans %}</li>
         {# ICU examples from https://symfony.com/doc/current/translation/message_format.html#using-the-icu-message-format #}
         <li>{% trans with {'organizer_name': 'Ryan', 'organizer_gender': 'male'} %}trans_tag_with_variables_AB{% endtrans %}</li>
         <li>{% trans with {'organizer_name': 'John & Jane', 'organizer_gender': 'not_applicable'} %}trans_tag_with_variables_AB{% endtrans %}</li>
@@ -18,12 +23,22 @@
         <li>{{ 'trans_filter_with_variable_as_param'|trans({'var1': 'val1', 'var2': 'val2'}) }}</li>
 
         {# t() function #}
-        <li>{{ t('t_function_with_variable_with_trans_filter', {'var1': 'val1', 'var2': 'val2'})|trans }}</li>
-        <li>{{ t('t_function_with_variable_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'})|trans('it') }}</li>
+        <li>{{ t('t_function_with_trans_filter')|trans }}</li>
+        <li>{{ t('t_function_with_variables_with_trans_filter', {'var1': 'val1', 'var2': 'val2'})|trans }}</li>
+        <li>{{ t('t_function_with_variables_and_domain_with_trans_filter', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain')|trans }}</li>
+        <li>{{ t('t_function_with_trans_filter_and_locale')|trans('en') }}</li>
+        <li>{{ t('t_function_with_variables_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'})|trans('en') }}</li>
+        <li>{{ t('t_function_with_variables_and_domain_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain')|trans('en') }}</li>
+    </ul>
 
-        {# Unsupported syntax #}
-        {% set t_function_in_a_variable = t('t_function_in_a_variable', {'var1': 'val1', 'var2': 'val2'}) %}
+    <h2>Twig unsupported syntax</h2>
+    <ul>
+        {% set t_function_in_a_variable = t('t_function_in_a_variable') %}
         <li>{{ t_function_in_a_variable|trans }}</li>
+        {% set t_function_with_variables_in_a_variable = t('t_function_with_variables_in_a_variable', {'var1': 'val1', 'var2': 'val2'}) %}
+        <li>{{ t_function_with_variables_in_a_variable|trans }}</li>
+        {% set t_function_with_variables_and_domain_in_a_variable = t('t_function_with_variables_and_domain_in_a_variable', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain') %}
+        <li>{{ t_function_with_variables_and_domain_in_a_variable|trans }}</li>
         {% set message_key_in_a_variable = 'message_key_in_a_variable' %}
         <li>{{ message_key_in_a_variable|trans }}</li>
     </ul>
