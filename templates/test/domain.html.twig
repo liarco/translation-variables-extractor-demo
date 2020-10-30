@@ -23,18 +23,18 @@
         {# |trans() tag #}
         <li>{{ 'D_trans_filter_empty'|trans }}</li>
         <li>{{ 'D_trans_filter_with_variable_as_param'|trans({'var1': 'val1', 'var2': 'val2'}) }}</li>
+
+        {# t() function #}
+        <li>{{ t('D_t_function_with_trans_filter')|trans }}</li>
+        <li>{{ t('D_t_function_with_variables_with_trans_filter', {'var1': 'val1', 'var2': 'val2'})|trans }}</li>
+        <li>{{ t('D_t_function_with_variables_and_domain_with_trans_filter', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain')|trans }}</li>
+        <li>{{ t('D_t_function_with_trans_filter_and_locale')|trans('en') }}</li>
+        <li>{{ t('D_t_function_with_variables_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'})|trans('en') }}</li>
+        <li>{{ t('D_t_function_with_variables_and_domain_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain')|trans('en') }}</li>
     </ul>
 
     <h2>Twig unsupported syntax</h2>
     <ul>
-        {# t() function #}
-        <li>{{ t('D_t_function_with_trans_filter')|trans }} <b>(regression)</b></li>
-        <li>{{ t('D_t_function_with_variables_with_trans_filter', {'var1': 'val1', 'var2': 'val2'})|trans }} <b>(regression)</b></li>
-        <li>{{ t('D_t_function_with_variables_and_domain_with_trans_filter', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain')|trans }} <b>(regression)</b></li>
-        <li>{{ t('D_t_function_with_trans_filter_and_locale')|trans('en') }} <b>(regression)</b></li>
-        <li>{{ t('D_t_function_with_variables_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'})|trans('en') }} <b>(regression)</b></li>
-        <li>{{ t('D_t_function_with_variables_and_domain_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain')|trans('en') }} <b>(regression)</b></li>
-
         {# variables #}
         {% set D_t_function_in_a_variable = t('D_t_function_in_a_variable') %}
         <li>{{ D_t_function_in_a_variable|trans }}</li>
