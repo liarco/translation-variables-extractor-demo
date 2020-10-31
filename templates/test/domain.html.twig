@@ -16,7 +16,7 @@
         <li>{% trans with {'organizer_name': 'Ryan', 'organizer_gender': 'male'} %}D_trans_tag_with_variables_AB{% endtrans %}</li>
         <li>{% trans with {'organizer_name': 'John & Jane', 'organizer_gender': 'not_applicable'} %}D_trans_tag_with_variables_AB{% endtrans %}</li>
 
-        {# |trans() tag #}
+        {# |trans() filter #}
         <li>{{ 'D_trans_filter_empty'|trans }}</li>
         <li>{{ 'D_trans_filter_with_variable_as_param'|trans({'var1': 'val1', 'var2': 'val2'}) }}</li>
 
