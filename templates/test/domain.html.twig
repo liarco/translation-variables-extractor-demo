@@ -27,10 +27,7 @@
         <li>{{ t('D_t_function_with_trans_filter_and_locale')|trans('en') }}</li>
         <li>{{ t('D_t_function_with_variables_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'})|trans('en') }}</li>
         <li>{{ t('D_t_function_with_variables_and_domain_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain')|trans('en') }}</li>
-    </ul>
 
-    <h2>Twig unsupported syntax</h2>
-    <ul class="examples">
         {# variables #}
         {% set D_t_function_in_a_variable = t('D_t_function_in_a_variable') %}
         <li>{{ D_t_function_in_a_variable|trans }}</li>
@@ -38,7 +35,11 @@
         <li>{{ D_t_function_with_variables_in_a_variable|trans }}</li>
         {% set D_t_function_with_variables_and_domain_in_a_variable = t('D_t_function_with_variables_and_domain_in_a_variable', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain') %}
         <li>{{ D_t_function_with_variables_and_domain_in_a_variable|trans }}</li>
+    </ul>
 
+    <h2>Twig unsupported syntax</h2>
+    <ul class="examples">
+        {# variables #}
         {% set D_message_key_in_a_variable = 'D_message_key_in_a_variable' %}
         <li>{{ D_message_key_in_a_variable|trans }}</li>
     </ul>

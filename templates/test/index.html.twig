@@ -25,10 +25,7 @@
         <li>{{ t('ND_t_function_with_trans_filter_and_locale')|trans('en') }}</li>
         <li>{{ t('ND_t_function_with_variables_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'})|trans('en') }}</li>
         <li>{{ t('ND_t_function_with_variables_and_domain_with_trans_filter_and_locale', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain')|trans('en') }}</li>
-    </ul>
 
-    <h2>Twig unsupported syntax</h2>
-    <ul class="examples">
         {# variables #}
         {% set ND_t_function_in_a_variable = t('ND_t_function_in_a_variable') %}
         <li>{{ ND_t_function_in_a_variable|trans }}</li>
@@ -36,7 +33,11 @@
         <li>{{ ND_t_function_with_variables_in_a_variable|trans }}</li>
         {% set ND_t_function_with_variables_and_domain_in_a_variable = t('ND_t_function_with_variables_and_domain_in_a_variable', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain') %}
         <li>{{ ND_t_function_with_variables_and_domain_in_a_variable|trans }}</li>
+    </ul>
 
+    <h2>Twig unsupported syntax</h2>
+    <ul class="examples">
+        {# variables #}
         {% set ND_message_key_in_a_variable = 'ND_message_key_in_a_variable' %}
         <li>{{ ND_message_key_in_a_variable|trans }}</li>
     </ul>
