@@ -29,6 +29,8 @@
         {# variables #}
         {% set ND_t_function_in_a_variable = t('ND_t_function_in_a_variable') %}
         <li>{{ ND_t_function_in_a_variable|trans }}</li>
+        {% set ND_t_function_with_variables_in_a_variable = t('ND_t_function_with_variables_in_a_variable', {'var1': 'val1'}) %}
+        {% set ND_t_function_with_variables_in_a_variable = t('ND_t_function_with_variables_in_a_variable', {'var1': 'val1', 'var2': 'val2', 'var3': 'val3'}) %}
         {% set ND_t_function_with_variables_in_a_variable = t('ND_t_function_with_variables_in_a_variable', {'var1': 'val1', 'var2': 'val2'}) %}
         <li>{{ ND_t_function_with_variables_in_a_variable|trans }}</li>
         {% set ND_t_function_with_variables_and_domain_in_a_variable = t('ND_t_function_with_variables_and_domain_in_a_variable', {'var1': 'val1', 'var2': 'val2'}, 'my-other-domain') %}

@@ -81,6 +81,9 @@
     "egulias/email-validator": {
         "version": "2.1.x-dev"
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "1.x-dev"
+    },
     "laminas/laminas-code": {
         "version": "3.5.x-dev"
     },
@@ -326,6 +329,9 @@
     "symfony/orm-pack": {
         "version": "dev-master"
     },
+    "symfony/password-hasher": {
+        "version": "5.x-dev"
+    },
     "symfony/phpunit-bridge": {
         "version": "4.3",
         "recipe": {
@@ -372,6 +378,9 @@
         "version": "5.x-dev"
     },
     "symfony/property-info": {
+        "version": "5.x-dev"
+    },
+    "symfony/proxy-manager-bridge": {
         "version": "5.x-dev"
     },
     "symfony/routing": {
